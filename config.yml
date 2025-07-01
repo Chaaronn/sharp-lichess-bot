@@ -1,4 +1,4 @@
-token: "lip_6qqNKNvm8o7L04RPqFJE"    # Lichess OAuth2 Token.
+token: ""    # Lichess OAuth2 Token.
 url: "https://lichess.org/"        # Lichess base URL.
 
 engine:                            # Engine settings.
@@ -93,8 +93,8 @@ engine:                            # Engine settings.
   uci_options:                     # Arbitrary UCI options passed to the engine.
     Sharp Margin: 15
 #   Move Overhead: 100             # Increase if your bot flags games too often.
-    Threads: 8                     # Max CPU threads the engine can use.
-    Hash: 2048                      # Max memory (in megabytes) the engine can allocate.
+    Threads: 12                     # Max CPU threads the engine can use.
+    Hash: 3048                      # Max memory (in megabytes) the engine can allocate.
 #   SyzygyPath: "./syzygy/"        # Paths to Syzygy endgame tablebases that the engine reads.
 #   UCI_ShowWDL: true              # Show the chance of the engine winning.
 #   go_commands:                   # Additional options to pass to the UCI go command.
@@ -199,9 +199,13 @@ matchmaking:
   challenge_initial_time:          # Initial time in seconds of the challenge (to be chosen at random).
     - 60
     - 180
+    - 240
+    - 300
+    - 360
   challenge_increment:             # Increment in seconds of the challenge (to be chosen at random).
     - 1
     - 2
+    - 3
 #  challenge_days:                 # Days for correspondence challenge (to be chosen at random).
 #    - 1
 #    - 2
@@ -210,10 +214,10 @@ matchmaking:
   opponent_rating_difference: 300  # The maximum difference in rating between the bot's rating and opponent's rating.
   rating_preference: "none"        # One of "none", "high", "low".
   challenge_mode: "rated"         # Set it to the mode in which challenges are sent. Possible options are 'casual', 'rated' and 'random'.
-  challenge_filter: none           # If a bot declines a challenge, do not issue a similar challenge to that bot. Possible options are 'none', 'coarse', and 'fine'.
+  challenge_filter: coarse           # If a bot declines a challenge, do not issue a similar challenge to that bot. Possible options are 'none', 'coarse', and 'fine'.
 # block_list:                      # The list of bots that will not be challenged
 #   - user1
-#   - user2
+#   - user2 q
 # online_block_list:               # The urls from which to retrieve a list of bot names that will not be challenged. The list should be a text file where each line contains the name of a blocked bot
 #   - example.com/blocklist
   include_challenge_block_list: false  # Do not challenge bots in the challenge: block_list in addition to the matchmaking block list.
